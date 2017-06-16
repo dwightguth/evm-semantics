@@ -52,7 +52,7 @@ desugar_cleanup() {
     echo "cleaning up ..."
     echo "==================================="
     cd tests-develop && ls | grep -v "VMTests" | xargs rm -r
-    cd "VMTests" && ls | grep -v "vmArithmeticTest.json" | xargs rm -rf
+    cd "VMTests" && ls | grep -v -e "vmArithmeticTest.json" -e  "vmSystemOperationsTest.json" | xargs rm -rf
     cd ../../
 }
 

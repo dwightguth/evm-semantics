@@ -1,0 +1,51 @@
+{
+    "CallRecursiveBomb2": {
+        "pre": {
+            "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6": {
+                "code": "0x600160005401600055600060006000600060003060e05a03f1600155", 
+                "nonce": "0x00", 
+                "balance": "0x01312d00", 
+                "storage": {}
+            }
+        }, 
+        "logs": [], 
+        "exec": {
+            "origin": "0xcd1722f3947def4cf144679da39c4c32bdc35681", 
+            "code": "0x600160005401600055600060006000600060003060e05a03f1600155", 
+            "caller": "0xcd1722f3947def4cf144679da39c4c32bdc35681", 
+            "gas": "0x0590b4", 
+            "value": "0x0186a0", 
+            "address": "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6", 
+            "data": "0x", 
+            "gasPrice": "0x01"
+        }, 
+        "callcreates": [
+            {
+                "gasLimit": "0x054160", 
+                "destination": "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6", 
+                "data": "0x", 
+                "value": "0x00"
+            }
+        ], 
+        "gas": "0x04f3f2", 
+        "env": {
+            "currentDifficulty": "0x0100", 
+            "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba", 
+            "currentNumber": "0x00", 
+            "currentGasLimit": "0x989680", 
+            "currentTimestamp": "0x01"
+        }, 
+        "post": {
+            "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6": {
+                "code": "0x600160005401600055600060006000600060003060e05a03f1600155", 
+                "nonce": "0x00", 
+                "balance": "0x01312d00", 
+                "storage": {
+                    "0x00": "0x01", 
+                    "0x01": "0x01"
+                }
+            }
+        }, 
+        "out": "0x"
+    }
+}

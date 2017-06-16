@@ -1,0 +1,50 @@
+{
+    "log1_nonEmptyMem": {
+        "pre": {
+            "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6": {
+                "code": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff600052600060206000a1", 
+                "nonce": "0x00", 
+                "balance": "0x152d02c7e14af6800000", 
+                "storage": {}
+            }
+        }, 
+        "logs": [
+            {
+                "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+                "topics": [
+                    "0000000000000000000000000000000000000000000000000000000000000000"
+                ], 
+                "bloom": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008800000000000000000020000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000", 
+                "address": "0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6"
+            }
+        ], 
+        "exec": {
+            "origin": "0xcd1722f3947def4cf144679da39c4c32bdc35681", 
+            "code": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff600052600060206000a1", 
+            "caller": "0xcd1722f3947def4cf144679da39c4c32bdc35681", 
+            "gas": "0x0186a0", 
+            "value": "0x0de0b6b3a7640000", 
+            "address": "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6", 
+            "data": "0x", 
+            "gasPrice": "0x5af3107a4000"
+        }, 
+        "callcreates": [], 
+        "gas": "0x01829d", 
+        "env": {
+            "currentDifficulty": "0x0100", 
+            "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba", 
+            "currentNumber": "0x00", 
+            "currentGasLimit": "0x0f4240", 
+            "currentTimestamp": "0x01"
+        }, 
+        "post": {
+            "0x0f572e5295c57f15886f9b263e2f6d2d6c7b5ec6": {
+                "code": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff600052600060206000a1", 
+                "nonce": "0x00", 
+                "balance": "0x152d02c7e14af6800000", 
+                "storage": {}
+            }
+        }, 
+        "out": "0x"
+    }
+}

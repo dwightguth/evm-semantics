@@ -583,9 +583,9 @@ The `JUMP*` family of operations affect the current program counter.
 
 
   // --------- Sec 9.4.2 (129) ----------
-    rule <op> JUMP  DEST   => . ... </op> <program> PMAP </program> <pc> _ => DEST </pc> requires PMAP[DEST] ==K JUMPDEST
-    rule <op> JUMPI DEST 0 => . ... </op> <program> PMAP </program>                      requires PMAP[DEST] ==K JUMPDEST
-    rule <op> JUMPI DEST I => . ... </op> <program> PMAP </program> <pc> _ => DEST </pc> requires PMAP[DEST] ==K JUMPDEST andBool I =/=K 0
+    rule <op> JUMP  DEST   => . ... </op> <program> ... DEST |-> JUMPDEST ... </program> <pc> _ => DEST </pc>
+    rule <op> JUMPI DEST 0 => . ... </op> <program> ... DEST |-> JUMPDEST ... </program>
+    rule <op> JUMPI DEST I => . ... </op> <program> ... DEST |-> JUMPDEST ... </program> <pc> _ => DEST </pc> requires I =/=K 0
 
     syntax NullStackOp ::= "STOP"
  // -----------------------------

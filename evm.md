@@ -913,7 +913,6 @@ Ethereum Gas Calculation
 ```k
     syntax Exception ::= "#outOfGas"
     syntax KItem     ::= "#checkGas"
-                       | #gas ( Word ) [function]
  // ---------------------------------------------
     rule <op> G':Int ~> #checkGas => .         ... </op> <gas> G => G -Int G' </gas> requires G' <=Int G
     rule <op> G':Int ~> #checkGas => #outOfGas ... </op> <gas> G              </gas> requires G' >Int G
@@ -985,7 +984,7 @@ The gas calculation is designed to mirror the style of the yellowpaper.
 TODO: The rules marked as `INCORRECT` below are performing simpler gas calculations than the actual yellowpaper specifies.
 
 ```k
-    syntax Word ::= #gas ( OpCode ) [function]
+    syntax InternalOp ::= #gas ( OpCode ) [function]
  // ------------------------------------------
     // rule <op> #gas(OP)           => ???                           ... </op> requires OP in Wcall
     // rule <op> #gas(SELFDESTRUCT) => ???                           ... </op>

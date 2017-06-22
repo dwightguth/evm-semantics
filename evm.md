@@ -988,13 +988,13 @@ TODO: The rules marked as `INCORRECT` below are performing simpler gas calculati
  // ------------------------------------------
     // rule <op> #gas(OP)           => ???                           ... </op> requires OP in Wcall
     // rule <op> #gas(SELFDESTRUCT) => ???                           ... </op>
-    rule <op> #gas(EXP)          => Gexp                          ... </op>                        // INCORRECT
-    rule <op> #gas(OP)           => Gverylow +Word Gcopy          ... </op> requires OP in Wcopy   // INCORRECT
-    rule <op> #gas(EXTCODECOPY)  => Gextcode +Word Gcopy          ... </op>                        // INCORRECT
-    rule <op> #gas(LOG(N))       => Glog +Word (N *Word Glogdata) ... </op>                        // INCORRECT
-    rule <op> #gas(CREATE)       => Gcreate                       ... </op>
-    rule <op> #gas(SHA3)         => Gsha3                         ... </op>                        // INCORRECT
-    rule <op> #gas(JUMPDEST)     => Gjumpdest                     ... </op>
+    rule <op> #gas(OP)           => Gexp                          ... </op> requires OP ==K EXP     // INCORRECT
+    rule <op> #gas(OP)           => Gverylow +Word Gcopy          ... </op> requires OP in Wcopy    // INCORRECT
+    rule <op> #gas(OP)           => Gextcode +Word Gcopy          ... </op> requires OP ==K EXTCODECOPY // INCORRECT
+    rule <op> #gas(LOG(N))       => Glog +Word (N *Word Glogdata) ... </op>                         // INCORRECT
+    rule <op> #gas(OP)           => Gcreate                       ... </op> requires OP ==K CREATE
+    rule <op> #gas(OP)           => Gsha3                         ... </op> requires OP ==K SHA3     // INCORRECT
+    rule <op> #gas(OP)           => Gjumpdest                     ... </op> requires OP ==K JUMPDEST
 
     rule <op> #gas(SLOAD)  => Gsload  ... </op>
     rule <op> #gas(SSTORE) => #if W1 =/=K 0 andBool notBool W0 in keys(STORAGE) #then Gsset #else Gsreset #fi ... </op>
@@ -1007,7 +1007,7 @@ TODO: The rules marked as `INCORRECT` below are performing simpler gas calculati
     rule <op> #gas(OP)           => Gmid                          ... </op> requires OP in Wmid
     rule <op> #gas(OP)           => Ghigh                         ... </op> requires OP in Whigh
     rule <op> #gas(OP)           => Gextcode                      ... </op> requires OP in Wextcode
-    rule <op> #gas(BALANCE)      => Gbalance                      ... </op>
-    rule <op> #gas(BLOCKHASH)    => Gblockhash                    ... </op>
+    rule <op> #gas(OP)           => Gbalance                      ... </op> requires OP ==K BALANCE
+    rule <op> #gas(OP)           => Gblockhash                    ... </op> requires OP ==K BLOCKHASH
 endmodule
 ```

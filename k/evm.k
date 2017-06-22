@@ -945,64 +945,66 @@ module ETHEREUM
 // The gas calculation is designed to mirror the style of the yellowpaper.
 
 
-    syntax Word ::= "Gzero" | "Gbase" | "Gverylow" | "Glow" | "Gmid" | "Ghigh" | "Gextcode"
-                  | "Gbalance" | "Gsload" | "Gjumpdest" | "Gsset" | "Gsreset" | "Rsclear"
-                  | "Rself-destruct" | "Gself-destruct" | "Gcreate" | "Gcodedeposit" | "Gcall"
-                  | "Gcallvalue" | "Gcallstipend" | "Gnewaccount" | "Gexp" | "Gexpbyte"
-                  | "Gmemory" | "Gtxcreate" | "Gtxdatazero" | "Gtxdatanonzero" | "Gtransaction"
-                  | "Glog" | "Glogdata" | "Glogtopic" | "Gsha3" | "Gsha3word" | "Gcopy" | "Gblockhash"
-                  | "#gasSSTORE" | "#gasCALL" | "#gasSELFDESTRUCT"
+    syntax Word ::= "Gzero" [function] | "Gbase" [function] | "Gverylow" [function] | "Glow" [function] | "Gmid" [function] | "Ghigh" [function] | "Gextcode" [function]
+                  | "Gbalance" [function] | "Gsload" [function] | "Gjumpdest" [function] | "Gsset" [function] | "Gsreset" [function] | "Rsclear" [function]
+                  | "Rself-destruct" [function] | "Gself-destruct" [function] | "Gcreate" [function] | "Gcodedeposit" [function] | "Gcall" [function]
+                  | "Gcallvalue" [function] | "Gcallstipend" [function] | "Gnewaccount" [function] | "Gexp" [function] | "Gexpbyte" [function]
+                  | "Gmemory" [function] | "Gtxcreate" [function] | "Gtxdatazero" [function] | "Gtxdatanonzero" [function] | "Gtransaction" [function]
+                  | "Glog" [function] | "Glogdata" [function] | "Glogtopic" [function] | "Gsha3" [function] | "Gsha3word" [function] | "Gcopy" [function] | "Gblockhash" [function]
+                  | "#gasSSTORE" [function] | "#gasCALL" [function] | "#gasSELFDESTRUCT" [function]
  // --------------------------------------------------------------
-    rule Gzero          => 0        [macro]
-    rule Gbase          => 2        [macro]
-    rule Gverylow       => 3        [macro]
-    rule Glow           => 5        [macro]
-    rule Gmid           => 8        [macro]
-    rule Ghigh          => 10       [macro]
-    rule Gextcode       => 700      [macro]
-    rule Gbalance       => 400      [macro]
-    rule Gsload         => 200      [macro]
-    rule Gjumpdest      => 1        [macro]
-    rule Gsset          => 20000    [macro]
-    rule Gsreset        => 5000     [macro]
-    rule Rsclear        => 15000    [macro]
-    rule Rself-destruct => 24000    [macro]
-    rule Gself-destruct => 5000     [macro]
-    rule Gcreate        => 32000    [macro]
-    rule Gcodedeposit   => 200      [macro]
-    rule Gcall          => 700      [macro]
-    rule Gcallvalue     => 9000     [macro]
-    rule Gcallstipend   => 2300     [macro]
-    rule Gnewaccount    => 25000    [macro]
-    rule Gexp           => 10       [macro]
-    rule Gexpbyte       => 10       [macro]
-    rule Gmemory        => 3        [macro]
-    rule Gtxcreate      => 32000    [macro]
-    rule Gtxdatazero    => 4        [macro]
-    rule Gtxdatanonzero => 68       [macro]
-    rule Gtransaction   => 21000    [macro]
-    rule Glog           => 375      [macro]
-    rule Glogdata       => 8        [macro]
-    rule Glogtopic      => 375      [macro]
-    rule Gsha3          => 30       [macro]
-    rule Gsha3word      => 6        [macro]
-    rule Gcopy          => 3        [macro]
-    rule Gblockhash     => 20       [macro]
+    rule Gzero          => 0
+    rule Gbase          => 2
+    rule Gverylow       => 3
+    rule Glow           => 5
+    rule Gmid           => 8
+    rule Ghigh          => 10
+    rule Gextcode       => 700
+    rule Gbalance       => 400
+    rule Gsload         => 200
+    rule Gjumpdest      => 1
+    rule Gsset          => 20000
+    rule Gsreset        => 5000
+    rule Rsclear        => 15000
+    rule Rself-destruct => 24000
+    rule Gself-destruct => 5000
+    rule Gcreate        => 32000
+    rule Gcodedeposit   => 200
+    rule Gcall          => 700
+    rule Gcallvalue     => 9000
+    rule Gcallstipend   => 2300
+    rule Gnewaccount    => 25000
+    rule Gexp           => 10
+    rule Gexpbyte       => 10
+    rule Gmemory        => 3
+    rule Gtxcreate      => 32000
+    rule Gtxdatazero    => 4
+    rule Gtxdatanonzero => 68
+    rule Gtransaction   => 21000
+    rule Glog           => 375
+    rule Glogdata       => 8
+    rule Glogtopic      => 375
+    rule Gsha3          => 30
+    rule Gsha3word      => 6
+    rule Gcopy          => 3
+    rule Gblockhash     => 20
 
-    syntax OpCodes ::= "Wzero" | "Wbase" | "Wverylow" | "Wlow" | "Wmid" | "Whigh" | "Wextcode" | "Wcopy" | "Wcall"
+    syntax OpCodes ::= "Wzero" [function] | "Wbase" [function] | "Wverylow" [function] |
+        "Wlow" [function] | "Wmid" [function] | "Whigh" [function]|
+        "Wextcode" [function] | "Wcopy" [function] | "Wcall" [function]
  // --------------------------------------------------------------------------------------------------------------
-    rule Wzero    => STOP ; RETURN ; .OpCodes                                               [macro]
+    rule Wzero    => STOP ; RETURN ; .OpCodes
     rule Wbase    =>   ADDRESS ; ORIGIN ; CALLER ; CALLVALUE ; CALLDATASIZE
                      ; CODESIZE ; GASPRICE ; COINBASE ; TIMESTAMP ; NUMBER
-                     ; DIFFICULTY ; GASLIMIT ; POP ; PC ; MSIZE ; GAS ; .OpCodes            [macro]
+                     ; DIFFICULTY ; GASLIMIT ; POP ; PC ; MSIZE ; GAS ; .OpCodes
     rule Wverylow =>   ADD ; SUB ; NOT ; LT ; GT ; SLT ; SGT ; EQ ; ISZERO ; AND
                      ; EVMOR ; XOR ; BYTE ; CALLDATALOAD ; MLOAD ; MSTORE ; MSTORE8
-                     ; PUSH(0, 0) ; DUP(0) ; SWAP(0) ; .OpCodes                             [macro]
-    rule Wlow     => MUL ; DIV ; SDIV ; MOD ; SMOD ; SIGNEXTEND ; .OpCodes                  [macro]
-    rule Wmid     => ADDMOD ; MULMOD ; JUMP ; JUMPI; .OpCodes                               [macro]
-    rule Wextcode => EXTCODESIZE ; .OpCodes                                                 [macro]
-    rule Wcopy    => CALLDATACOPY ; CODECOPY ; .OpCodes                                     [macro]
-    rule Wcall    => CALL ; CALLCODE ; DELEGATECALL ; .OpCodes                              [macro]
+                     ; PUSH(0, 0) ; DUP(0) ; SWAP(0) ; .OpCodes
+    rule Wlow     => MUL ; DIV ; SDIV ; MOD ; SMOD ; SIGNEXTEND ; .OpCodes
+    rule Wmid     => ADDMOD ; MULMOD ; JUMP ; JUMPI; .OpCodes
+    rule Wextcode => EXTCODESIZE ; .OpCodes
+    rule Wcopy    => CALLDATACOPY ; CODECOPY ; .OpCodes
+    rule Wcall    => CALL ; CALLCODE ; DELEGATECALL ; .OpCodes
 
 
 // TODO: The rules marked as `INCORRECT` below are performing simpler gas
